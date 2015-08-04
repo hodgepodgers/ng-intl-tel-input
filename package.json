@@ -1,0 +1,23 @@
+{
+  "name": "ng-intl-tel-input",
+  "version": "0.1.0",
+  "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
+  "main": "ng-intl-tel-input.directive.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bighappyface/ng-intl-tel-input.git"
+  },
+  "keywords": [
+    "intl-tel-input",
+    "angularjs"
+  ],
+  "author": "bighappyface <anomalous20@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bighappyface/ng-intl-tel-input/issues"
+  },
+  "homepage": "https://github.com/bighappyface/ng-intl-tel-input"
+}
