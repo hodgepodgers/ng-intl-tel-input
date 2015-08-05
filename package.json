@@ -4,7 +4,7 @@
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
   "main": "ng-intl-tel-input.directive.js",
   "scripts": {
-    "test": "./ci.sh"
+    "test": "jshint *.js"
   },
   "repository": {
     "type": "git",
