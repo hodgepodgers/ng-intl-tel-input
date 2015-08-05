@@ -25,6 +25,7 @@
     "intl-tel-input": "~6.0.6"
   },
   "devDependencies": {
-    "angularjs": "1.4.3"
+    "angularjs": "1.4.3",
+    "angular-mocks": "~1.4.3"
   }
 }
