@@ -1,4 +1,3 @@
-angular.module('ngIntlTelInput', []);
 angular.module('ngIntlTelInput')
   .directive('ngIntlTelInput', function () {
     return{
