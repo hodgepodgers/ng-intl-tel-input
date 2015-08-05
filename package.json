@@ -8,27 +8,35 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bighappyface/ng-intl-tel-input.git"
+    "url": "https://github.com/rswebteam/ng-intl-tel-input.git"
   },
   "keywords": [
     "intl-tel-input",
     "angularjs"
   ],
   "author": "bighappyface <anomalous20@gmail.com>",
+  "contributors": [
+    {
+      "name": "SyntaxStacks <john.lozano@rackspace.com>"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bighappyface/ng-intl-tel-input/issues"
+    "url": "https://github.com/rswebteam/ng-intl-tel-input/issues"
   },
-  "homepage": "https://github.com/bighappyface/ng-intl-tel-input",
+  "homepage": "https://github.com/rswebteam/ng-intl-tel-input",
   "devDependencies": {
-    "jshint": "2.8.0",
+    "bower": "^1.4.1",
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
     "jasmine-core": "^2.3.4",
+    "jshint": "2.8.0",
     "karma": "^0.13.6",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
     "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
     "protractor": "^2.1.0"
   }
 }
