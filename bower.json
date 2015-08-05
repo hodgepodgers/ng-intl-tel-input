@@ -23,5 +23,8 @@
   ],
   "dependencies": {
     "intl-tel-input": "~6.0.6"
+  },
+  "devDependencies": {
+    "angularjs": "1.4.3"
   }
 }

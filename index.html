@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="ngIntlTelInputApp">
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ng-intel-tel-input example page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angularjs/angular.js"></script>
+  <script src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
+  <script src="bower_components/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
+  <script src="ng-intl-tel-input.directive.js"></script>
+  <script>
+    var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput']);
+  </script>
+
+</head>
+<body>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>ng-intel-tel-input</h1>
+    <p class="lead">This is a basic example page showcasing the ng-intl-tel-input directive.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form name="form">
+        <div class="form-group">
+          <label for="tel">Telephone number</label>
+          <input type="text" class="form-control" id="tel" ng-model="tel" ng-intl-tel-input>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+
+</div>
+
+</body>
+</html>
