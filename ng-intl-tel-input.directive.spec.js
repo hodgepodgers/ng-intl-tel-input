@@ -33,4 +33,30 @@ describe('ng-intl-tel-input', function () {
     expect(doc.find('.intl-tel-input').length).toEqual(0);
   }));
 
+  it('should set the field as invalid with bad input', inject(function ($compile, $rootScope) {
+    angular.element(element).val('07400 123456').trigger('input');
+    $scope.$digest();
+    expect(form.tel.$error.ngIntlTelInput).toBeDefined();
+    expect(form.tel.$valid).toBe(false);
+  }));
+
+  it('should set the field as valid with good input', inject(function ($compile, $rootScope) {
+    angular.element(element).val('2103128425').trigger('input');
+    $scope.$digest();
+    expect(form.tel.$error.ngIntlTelInput).toBeUndefined();
+    expect(form.tel.$valid).toBe(true);
+  }));
+
+  it('should set the model value to the full phone number with dial code', inject(function ($compile, $rootScope) {
+    angular.element(element).val('2103128425').trigger('input');
+    $scope.$apply();
+    expect($scope.model.tel).toEqual('+12103128425');
+  }));
+
+  it('should not set the model value when invalid', inject(function ($compile, $rootScope) {
+    angular.element(element).val('07400 123456').trigger('input');
+    $scope.$apply();
+    expect($scope.model.tel).toBeUndefined();
+  }));
+
 });

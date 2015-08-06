@@ -4,6 +4,15 @@ node_js:
   - "0.11"
   - "0.10"
   - "iojs"
+install:
+  - "npm install"
+  - "./node_modules/bower/bin/bower install"
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+script:
+  - "nohup ./node_modules/http-server/bin/http-server &"
+  - "npm run jshint"
+  - "npm run karma"
+  - "npm run webdriver-update"
+  - "npm run protractor"
