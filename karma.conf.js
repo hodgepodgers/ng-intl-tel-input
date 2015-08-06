@@ -2,7 +2,7 @@ module.exports = function (config) {
   config.set({
     basePath: '',
 
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'sinon'],
 
     browsers: ['PhantomJS'],
 
@@ -14,7 +14,8 @@ module.exports = function (config) {
 
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-sinon'
     ],
 
     files: [
