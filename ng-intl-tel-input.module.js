@@ -1,24 +1,26 @@
 angular.module('ngIntlTelInput', [])
   .provider('ngIntlTelInput', function () {
-    var utilsFilePath;
-    var defaultCountry;
+    var props = {};
 
-    this.setUtilsFile = function (utilsFile) {
-      utilsFilePath = utilsFile;
-    };
-
-    this.setDefaultCountry = function (dc) {
-      defaultCountry = dc;
-    };
-
-    this.$get = function () {
-      return Object.create({}, {
-        utilsFile: {
-          get: function () { return utilsFilePath; }
-        },
-        defaultCountry: {
-          get: function () { return defaultCountry; }
+    this.set = function (obj) {
+      if (typeof obj === 'object') {
+        for (var key in obj) {
+          props[key] = obj[key];
         }
-      });
+      }
     };
+
+    this.$get = ['$log', function ($log) {
+      return Object.create({}, {
+        init: {
+          value: function (elm, attr) {
+            // add massaging of properties from attributes here;
+            if (typeof props.utilsScript !== 'string') {
+              $log.warn('missing stuff');
+            }
+            elm.intlTelInput(props);
+          }
+        },
+      });
+    }];
   });

@@ -1,12 +1,12 @@
 angular.module('ngIntlTelInput')
-  .directive('ngIntlTelInput', ['$log', function ($log) {
+  .directive('ngIntlTelInput', ['ngIntlTelInput', function (ngIntlTelInput) {
     return {
       restrict: 'A',
       require: 'ngModel',
       link: function (scope, elm, attr, ctrl) {
         if (attr.type !== 'text') return;
         // Initialize.
-        elm.intlTelInput();
+        ngIntlTelInput.init(elm);
         // Validation.
         ctrl.$validators.ngIntlTelInput = function (value) {
           return elm.intlTelInput("isValidNumber");
