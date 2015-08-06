@@ -1,7 +1,7 @@
 angular.module('ngIntlTelInput', []);
 angular.module('ngIntlTelInput')
   .directive('ngIntlTelInput', function () {
-    return{
+    return {
       restrict: 'A',
       require: "ngModel",
       link: function (scope, elm, attr, ctrl) {
