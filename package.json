@@ -4,7 +4,11 @@
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
   "main": "ng-intl-tel-input.directive.js",
   "scripts": {
-    "test": "sh ./ci.sh"
+    "test": "sh ./ci.sh",
+    "jshint": "./node_modules/jshint/bin/jshint *.js",
+    "karma": "./node_modules/karma/bin/karma start karma.conf.js",
+    "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.js",
+    "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.min.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +33,7 @@
     "bower": "^1.4.1",
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
+    "concat-cli": "^1.0.1",
     "http-server": "^0.8.0",
     "jasmine-core": "^2.3.4",
     "jshint": "2.8.0",
@@ -38,6 +43,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "mocha": "^2.2.5",
     "phantomjs": "^1.9.17",
-    "protractor": "^2.1.0"
+    "protractor": "^2.1.0",
+    "uglify": "^0.1.5"
   }
 }
