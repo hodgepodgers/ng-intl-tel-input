@@ -8,7 +8,9 @@
     "jshint": "./node_modules/jshint/bin/jshint *.js",
     "karma": "./node_modules/karma/bin/karma start karma.conf.js",
     "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.js",
-    "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.min.js"
+    "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.min.js",
+    "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update",
+    "protractor": "./node_modules/protractor/bin/protractor protractor.conf.js"
   },
   "repository": {
     "type": "git",

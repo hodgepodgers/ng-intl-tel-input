@@ -7,6 +7,12 @@
   <title>ng-intel-tel-input example page</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css">
+  <style>
+    /*
+     * @see https://github.com/Bluefieldscom/intl-tel-input#troubleshooting
+     */
+    .intl-tel-input {display: table-cell;}
+  </style>
 </head>
 <body>
 
@@ -21,13 +27,19 @@
   <div class="row">
     <div class="col-md-6">
       <form name="form">
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error': form.tel.$invalid && form.tel.$touched, 'has-success': form.tel.$valid}">
           <label for="tel">Telephone number</label>
-          <input type="text" class="form-control" id="tel" ng-model="tel" ng-intl-tel-input>
+          <input type="text" class="form-control" id="tel" name="tel" ng-model="tel" ng-intl-tel-input>
+          <span id="helpBlock" class="help-block" ng-show="form.tel.$pristine && form.tel.$untouched">Please type a telephone number</span>
+          <span id="helpBlock" class="help-block" ng-show="form.tel.$invalid && form.tel.$touched">Invalid :(</span>
+          <span id="helpBlock" class="help-block" ng-show="form.tel.$valid">Valid :)</span>
         </div>
       </form>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <p><strong>Model value</strong></p>
+      <blockquote>{{tel}}<span ng-if="!tel">N/A</span></blockquote>
+    </div>
   </div>
 
 </div>
