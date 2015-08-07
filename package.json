@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run jshint && npm run karma",
     "build": "npm run concat && npm run uglify",
+    "server": "nohup ./node_modules/http-server/bin/http-server",
     "jshint": "./node_modules/jshint/bin/jshint *.js",
     "karma": "./node_modules/karma/bin/karma start karma.conf.js",
     "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,directive}.js -o dist/ng-intl-tel-input.js",
