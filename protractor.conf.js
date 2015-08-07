@@ -9,7 +9,7 @@ exports.config = {
   baseUrl: 'http://localhost:8080',
 
   specs: [
-    path.resolve('./ng-intl-tel-input.directive.e2e.js')
+    path.resolve('./*.e2e.js')
   ],
 
   params: {},
