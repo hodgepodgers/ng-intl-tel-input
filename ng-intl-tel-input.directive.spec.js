@@ -33,41 +33,54 @@ describe('ng-intl-tel-input', function () {
     expect(doc.find('.intl-tel-input').length).toEqual(0);
   }));
 
-  it('should set the field as invalid with bad input', inject(function ($compile, $rootScope) {
+  it('should set the field as invalid with bad input', function () {
     angular.element(element).val('07400 123456').trigger('input');
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeDefined();
     expect(form.tel.$valid).toBe(false);
-  }));
+  });
 
-  it('should set the field as valid with good input', inject(function ($compile, $rootScope) {
+  it('should set the field as valid with good input', function () {
     angular.element(element).val('2103128425').trigger('input');
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeUndefined();
     expect(form.tel.$valid).toBe(true);
-  }));
+  });
 
-  it('should set the model value to the full phone number with dial code', inject(function ($compile, $rootScope) {
+  it('should set the model value to the full phone number with dial code', function () {
     angular.element(element).val('2103128425').trigger('input');
-    $scope.$apply();
+    $scope.$digest();
     expect($scope.model.tel).toEqual('+12103128425');
-  }));
+  });
 
-  it('should not set the model value when invalid', inject(function ($compile, $rootScope) {
+  it('should not set the model value when invalid', function () {
     angular.element(element).val('07400 123456').trigger('input');
-    $scope.$apply();
+    $scope.$digest();
     expect($scope.model.tel).toBeUndefined();
-  }));
+  });
 
-  it('should set the default country', inject(function ($compile, $rootScope) {
+  it('should set the default country', inject(function ($compile) {
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-default-country="af" />' +
       '</form>'
     );
-    $compile(doc)($rootScope);
-    $rootScope.$digest();
-    element = doc.find('input');
+    $compile(doc)($scope);
+    $scope.$digest();
+    element = doc.find('input').eq(0);
     expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
+  }));
+
+  it('should set the country when model value is present', inject(function ($compile) {
+    $scope.model.tel = '+447400123456';
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    element = doc.find('input').eq(0);
+    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
   }));
 });
