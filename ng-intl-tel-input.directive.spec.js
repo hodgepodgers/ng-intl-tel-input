@@ -59,4 +59,15 @@ describe('ng-intl-tel-input', function () {
     expect($scope.model.tel).toBeUndefined();
   }));
 
+  it('should set the default country', inject(function ($compile, $rootScope) {
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-default-country="af" />' +
+      '</form>'
+    );
+    $compile(doc)($rootScope);
+    $rootScope.$digest();
+    element = doc.find('input');
+    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
+  }));
 });

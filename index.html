@@ -23,6 +23,14 @@
 
     <p class="lead">This is a basic example page showcasing the ng-intl-tel-input directive.</p>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Basic Example</h2>
+      <div class="well">
+        <code>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tel&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input&gt;</code>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-6">
@@ -30,15 +38,40 @@
         <div class="form-group" ng-class="{'has-error': form.tel.$invalid && form.tel.$touched, 'has-success': form.tel.$valid}">
           <label for="tel">Telephone number</label>
           <input type="text" class="form-control" id="tel" name="tel" ng-model="tel" ng-intl-tel-input>
-          <span id="helpBlock" class="help-block" ng-show="form.tel.$pristine && form.tel.$untouched">Please type a telephone number</span>
-          <span id="helpBlock" class="help-block" ng-show="form.tel.$invalid && form.tel.$touched">Invalid :(</span>
-          <span id="helpBlock" class="help-block" ng-show="form.tel.$valid">Valid :)</span>
+          <span class="help-block" ng-show="form.tel.$pristine && form.tel.$untouched">Please type a telephone number</span>
+          <span class="help-block" ng-show="form.tel.$invalid && form.tel.$touched">Invalid :(</span>
+          <span class="help-block" ng-show="form.tel.$valid">Valid :)</span>
         </div>
       </form>
     </div>
     <div class="col-md-6">
       <p><strong>Model value</strong></p>
       <blockquote>{{tel}}<span ng-if="!tel">N/A</span></blockquote>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Setting default country with "data-default-country" Example</h2>
+      <div class="well">
+        <code>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tel-dc&quot; name=&quot;tel&quot; ng-model=&quot;tel2&quot; ng-intl-tel-input data-default-country='gb'&gt;</code>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <form name="form2">
+        <div class="form-group" ng-class="{'has-error': form2.tel.$invalid && form2.tel.$touched, 'has-success': form2.tel.$valid}">
+          <label for="tel">Telephone number</label>
+          <input type="text" class="form-control" id="tel-dc" name="tel" ng-model="tel2" ng-intl-tel-input data-default-country='gb'>
+          <span class="help-block" ng-show="form2.tel.$pristine && form2.tel.$untouched">Please type a telephone number</span>
+          <span class="help-block" ng-show="form2.tel.$invalid && form2.tel.$touched">Invalid :(</span>
+          <span class="help-block" ng-show="form2.tel.$valid">Valid :)</span>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Model value</strong></p>
+      <blockquote>{{tel2}}<span ng-if="!tel2">N/A</span></blockquote>
     </div>
   </div>
 
@@ -51,7 +84,11 @@
 <script src="ng-intl-tel-input.module.js"></script>
 <script src="ng-intl-tel-input.directive.js"></script>
 <script>
-  var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput']);
+  var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput'])
+    .config(function (ngIntlTelInputProvider) {
+      ngIntlTelInputProvider.set({ defaultCountry: 'us' });
+    });
+
 </script>
 
 </body>

@@ -13,8 +13,11 @@ angular.module('ngIntlTelInput', [])
     this.$get = ['$log', function ($log) {
       return Object.create({}, {
         init: {
-          value: function (elm, attr) {
-            // add massaging of properties from attributes here;
+          value: function (elm, attrs) {
+            var country = elm.attr('data-default-country');
+            if (country) {
+              props.defaultCountry = country;
+            }
             if (typeof props.utilsScript !== 'string') {
               $log.warn('missing stuff');
             }
