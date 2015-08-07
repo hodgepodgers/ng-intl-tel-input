@@ -25,6 +25,7 @@ module.exports = function (config) {
       'bower_components/intl-tel-input/build/js/intlTelInput.js',
       'bower_components/intl-tel-input/lib/libphonenumber/build/utils.js',
       'ng-intl-tel-input.module.js',
+      'ng-intl-tel-input.provider.js',
       'ng-intl-tel-input.directive.js',
       '*.spec.js'
     ]
