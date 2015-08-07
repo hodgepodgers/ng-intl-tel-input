@@ -11,7 +11,9 @@
     /*
      * @see https://github.com/Bluefieldscom/intl-tel-input#troubleshooting
      */
-    .intl-tel-input {display: table-cell;}
+    .intl-tel-input {
+      display: table-cell;
+    }
   </style>
 </head>
 <body>
@@ -19,15 +21,17 @@
 <div class="container">
 
   <div class="page-header">
-    <h1>ng-intel-tel-input</h1>
+    <h1>ng-intel-tel-input examples</h1>
 
-    <p class="lead">This is a basic example page showcasing the ng-intl-tel-input directive.</p>
+    <p class="lead">This is a basic demonstration page showcasing the ng-intl-tel-input directive.</p>
   </div>
+
   <div class="row">
     <div class="col-md-12">
-      <h2> Basic Example</h2>
+      <h2>Basic usage</h2>
+
       <div class="well">
-        <code>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tel&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input&gt;</code>
+        <code>&lt;input type=&quot;text&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input&gt;</code>
       </div>
     </div>
   </div>
@@ -49,14 +53,17 @@
       <blockquote>{{tel}}<span ng-if="!tel">N/A</span></blockquote>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
-      <h2> Setting default country with "data-default-country" Example</h2>
+      <h2>Setting default country with <code>data-default-country</code></h2>
+
       <div class="well">
-        <code>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tel-dc&quot; name=&quot;tel&quot; ng-model=&quot;tel2&quot; ng-intl-tel-input data-default-country='gb'&gt;</code>
+        <code>&lt;input type=&quot;text&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input data-default-country=&quot;gb&quot;&gt;</code>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-6">
       <form name="form2">
@@ -85,10 +92,9 @@
 <script src="ng-intl-tel-input.directive.js"></script>
 <script>
   var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput'])
-    .config(function (ngIntlTelInputProvider) {
-      ngIntlTelInputProvider.set({ defaultCountry: 'us' });
-    });
-
+      .config(function (ngIntlTelInputProvider) {
+        ngIntlTelInputProvider.set({defaultCountry: 'us'});
+      });
 </script>
 
 </body>
