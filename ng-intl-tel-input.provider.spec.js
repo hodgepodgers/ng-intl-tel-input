@@ -54,11 +54,12 @@ describe('ngIntlTelInput Provider', function () {
       );
     }));
 
-    it('should override the default country', function () {
-      provider.set({'defaultCountry': 'us'});
+    it('should override the default country', inject(function ($compile, $rootScope) {
+      provider.set({'defaultCountry': 'gb'});
       var input = element.find('input');
-      $injector.invoke(provider.$get).init(input);
+      $compile(element)($rootScope);
+      $rootScope.$digest();
       expect(input.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
-    });
+    }));
   });
 });
