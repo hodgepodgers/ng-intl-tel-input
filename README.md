@@ -34,7 +34,7 @@ Assigns the final formatted telephone number to the ng-model binding.
 
 `git clone https://github.com/rswebteam/ng-intl-tel-input.git`
 
-### Provider setup and config**
+### Provider setup and config
 
 Inject `ngIntlTelInput` into your application module
 
