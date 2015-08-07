@@ -9,6 +9,10 @@ angular.module('ngIntlTelInput')
             $log.warn('ng-intl-tel-input can only be applied to a *text* input');
             return;
           }
+          var country = attr.defaultCountry;
+          if (country) {
+            ngIntlTelInput.set({defaultCountry: country});
+          }
           // Initialize.
           ngIntlTelInput.init(elm);
           // Validation.

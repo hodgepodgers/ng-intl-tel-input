@@ -1,23 +1,20 @@
 angular.module('ngIntlTelInput', [])
   .provider('ngIntlTelInput', function () {
+    var me = this;
     var props = {};
-
-    this.set = function (obj) {
+    var setFn = function (obj) {
       if (typeof obj === 'object') {
         for (var key in obj) {
           props[key] = obj[key];
         }
       }
     };
+    me.set = setFn;
 
-    this.$get = ['$log', function ($log) {
-      return Object.create({}, {
+    me.$get = ['$log', function ($log) {
+      return Object.create(me, {
         init: {
-          value: function (elm, attrs) {
-            var country = elm.attr('data-default-country');
-            if (country) {
-              props.defaultCountry = country;
-            }
+          value: function (elm) {
             if (!window.intlTelInputUtils) {
               $log.warn('intlTelInputUtils is not defined. Formatting and validation will not work.');
             }
