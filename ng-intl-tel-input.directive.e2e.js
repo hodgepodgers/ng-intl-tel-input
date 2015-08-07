@@ -1,7 +1,7 @@
 var page = Object.create({}, {
   phone: {
     get: function () {
-      return $('input#tel');
+      return $('#tel');
     },
     set: function (number) {
       this.phone.sendKeys(number);
@@ -9,7 +9,7 @@ var page = Object.create({}, {
   },
   phoneDefaultCountry: {
     get: function () {
-      return $('input#tel-dc');
+      return $('#tel-dc');
     },
     set: function (number) {
       this.phoneDefaultCountry.sendKeys(number);
