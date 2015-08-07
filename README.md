@@ -22,7 +22,7 @@ Assigns the final formatted telephone number to the ng-model binding.
 
 ~~Add link to demo~~
 
-## How to
+## Usage
 
 ### Installation
 
@@ -34,7 +34,7 @@ Assigns the final formatted telephone number to the ng-model binding.
 
 `git clone https://github.com/rswebteam/ng-intl-tel-input.git`
 
-**Setup and Config**
+### Provider setup and config**
 
 Inject `ngIntlTelInput` into your application module
 
@@ -48,19 +48,30 @@ Configure defaults
 
 ```javascript
 angular.module('myApp')
-  .config(['ngIntlTelInputProvider', function (ngIntlTelInputProvider) {
-    ngIntlTelInputProvider.allowExtensions = false;
-    ...
-  }]);
+  .config(function (ngIntlTelInputProvider) {
+    ngIntlTelInputProvider.set({defaultCountry: 'us'});
+  });
 ```
 
-### Directive Attributes
+### Directive usage
 
-**ng-intl-tel-input**
+#### ng-intl-tel-input attribute
 
-This attribute converts a *text* field to the _intl-tel-input_.
+This attribute applies _intl-tel-input_ to a **text** field.
 
 ```html
 <input type="text" ng-model="model.tel" ng-intl-tel-input>
 ```
 
+**Note**
+
+* `type` is set to *text*
+* `ng-model` is specified (required)
+
+#### data-default-country attribute
+
+This attribute allows run-time setting of the default country.
+
+```html
+<input type="text" ng-model="model.tel" ng-intl-tel-input data-default-country="gb">
+```
