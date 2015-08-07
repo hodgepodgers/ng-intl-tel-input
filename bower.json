@@ -1,7 +1,7 @@
 {
   "name": "ng-intl-tel-input",
   "version": "1.0.1",
-  "homepage": "https://github.com/rswebteam/ng-intl-tel-input",
+  "homepage": "https://github.com/hodgepodgers/ng-intl-tel-input",
   "authors": [
     "bighappyface <anomalous20@gmail.com>"
   ],
@@ -11,7 +11,11 @@
     "globals"
   ],
   "keywords": [
-    "intl-tel-input"
+    "intl-tel-input",
+    "international",
+    "telephone",
+    "validator",
+    "angularjs"
   ],
   "license": "MIT",
   "ignore": [

@@ -13,28 +13,31 @@
     "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
     "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update",
     "protractor": "./node_modules/protractor/bin/protractor protractor.conf.js",
-    "preversion": "npm test",
-    "version": "npm run build && git add -A dist"
+    "mversion" : "./node_modules/mversion/bin/version "
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hodgepodge/ng-intl-tel-input.git"
+    "url": "https://github.com/hodgepodgers/ng-intl-tel-input.git"
   },
   "keywords": [
+    "ng-intl-tel-input",
     "intl-tel-input",
+    "international",
+    "telephone",
+    "validator",
     "angularjs"
   ],
   "author": "bighappyface <anomalous20@gmail.com>",
   "contributors": [
     {
-      "name": "SyntaxStacks <john.lozano@rackspace.com>"
+      "name": "SyntaxStacks <johnbobsexipants@gmail.com>"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hodgepodge/ng-intl-tel-input/issues"
+    "url": "https://github.com/hodgepodgers/ng-intl-tel-input/issues"
   },
-  "homepage": "https://github.com/hodgepodge/ng-intl-tel-input",
+  "homepage": "http://hodgepodgers.github.io/ng-intl-tel-input",
   "devDependencies": {
     "bower": "^1.4.1",
     "chai": "^3.2.0",
@@ -49,6 +52,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sinon": "^1.0.4",
     "mocha": "^2.2.5",
+    "mversion": "^1.10.0",
     "phantomjs": "^1.9.17",
     "protractor": "^2.1.0",
     "sinon": "^1.15.4",

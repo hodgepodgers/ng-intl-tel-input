@@ -1,0 +1,8 @@
+{
+  "commitMessage": "chore(release): %s",
+  "tagName": "v%s",
+  "scripts": {
+    "preupdate": "npm test",
+    "precommit": "npm run build && git add -A dist"
+  }
+}
