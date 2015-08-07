@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rswebteam/ng-intl-tel-input.git"
+    "url": "https://github.com/hodgepodge/ng-intl-tel-input.git"
   },
   "keywords": [
     "intl-tel-input",
@@ -32,9 +32,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rswebteam/ng-intl-tel-input/issues"
+    "url": "https://github.com/hodgepodge/ng-intl-tel-input/issues"
   },
-  "homepage": "https://github.com/rswebteam/ng-intl-tel-input",
+  "homepage": "https://github.com/hodgepodge/ng-intl-tel-input",
   "devDependencies": {
     "bower": "^1.4.1",
     "chai": "^3.2.0",
