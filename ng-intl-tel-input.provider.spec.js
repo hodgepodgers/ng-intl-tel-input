@@ -16,7 +16,7 @@ describe('ngIntlTelInput Provider', function () {
     }));
 
     it('should allow the passsing of utils file', function () {
-      var script = { 'utilsScript': '/path/to/utils' };
+      var script = {'utilsScript': '/path/to/utils'};
       provider.set(script);
       var stub = sinon.stub(element, 'intlTelInput');
       $injector.invoke(provider.$get).init(element);
@@ -25,13 +25,13 @@ describe('ngIntlTelInput Provider', function () {
     });
 
     it('should set default country', function () {
-      provider.set({ 'defaultCountry': 'af'});
+      provider.set({'defaultCountry': 'af'});
       $injector.invoke(provider.$get).init(element);
       expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
     });
 
     it('should set multiple properties', function () {
-      var script = { 'defaultCountry': 'us', 'utilsScript': 'lol' };
+      var script = {'defaultCountry': 'us', 'utilsScript': 'lol'};
       provider.set(script);
       var stub = sinon.stub(element, 'intlTelInput');
       $injector.invoke(provider.$get).init(element);
@@ -55,7 +55,7 @@ describe('ngIntlTelInput Provider', function () {
     }));
 
     it('should override the default country', function () {
-      provider.set({ 'defaultCountry': 'us' });
+      provider.set({'defaultCountry': 'us'});
       var input = element.find('input');
       $injector.invoke(provider.$get).init(input);
       expect(input.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
