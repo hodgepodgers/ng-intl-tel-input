@@ -18,8 +18,8 @@ angular.module('ngIntlTelInput', [])
             if (country) {
               props.defaultCountry = country;
             }
-            if (typeof props.utilsScript !== 'string') {
-              $log.warn('missing stuff');
+            if (!window.intlTelInputUtils) {
+              $log.warn('intlTelInputUtils is not defined. Formatting and validation will not work.');
             }
             elm.intlTelInput(props);
           }
