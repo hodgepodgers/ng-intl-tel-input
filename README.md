@@ -20,7 +20,7 @@ Assigns the final formatted telephone number to the ng-model binding.
 
 ## Demo
 
-~~Add link to demo~~
+http://hodgepodgers.github.io/ng-intl-tel-input/
 
 ## Usage
 
