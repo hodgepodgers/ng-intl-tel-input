@@ -1,6 +1,6 @@
 {
   "name": "ng-intl-tel-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
   "main": "ng-intl-tel-input.directive.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
     "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update",
     "protractor": "./node_modules/protractor/bin/protractor protractor.conf.js",
-    "mversion" : "./node_modules/mversion/bin/version "
+    "mversion": "./node_modules/mversion/bin/version "
   },
   "repository": {
     "type": "git",
