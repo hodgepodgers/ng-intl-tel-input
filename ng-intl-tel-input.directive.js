@@ -18,7 +18,12 @@ angular.module('ngIntlTelInput')
           ngIntlTelInput.init(elm);
           // Validation.
           ctrl.$validators.ngIntlTelInput = function (value) {
-            return elm.intlTelInput("isValidNumber");
+              // if phone number is deleted / empty do not run phone number validation 
+              if (value || elm[0].value.length > 1) {
+                  return elm.intlTelInput("isValidNumber");
+              } else {
+                  return true;
+              }
           };
           // Set model value to valid, formatted version.
           ctrl.$parsers.push(function (value) {
