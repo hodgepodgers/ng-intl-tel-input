@@ -47,6 +47,13 @@ describe('ng-intl-tel-input', function () {
     expect(form.tel.$valid).toBe(true);
   });
 
+  it('should set the field as valid with empty input', function () {
+    angular.element(element).val('').trigger('input');
+    $scope.$digest();
+    expect(form.tel.$error.ngIntlTelInput).toBeUndefined();
+    expect(form.tel.$valid).toBe(true);
+  });
+
   it('should set the model value to the full phone number with dial code', function () {
     angular.element(element).val('2103128425').trigger('input');
     $scope.$digest();
