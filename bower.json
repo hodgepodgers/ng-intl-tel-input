@@ -6,7 +6,7 @@
     "bighappyface <anomalous20@gmail.com>"
   ],
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
-  "main": "src/ng-intl-tel-input.directive.js",
+  "main": "dist/ng-intl-tel-input.js",
   "moduleType": [
     "globals"
   ],
