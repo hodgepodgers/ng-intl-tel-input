@@ -60,6 +60,12 @@ describe('ng-intl-tel-input', function () {
     expect($scope.model.tel).toEqual('12103128425');
   });
 
+  it('should set the model value to the full phone number with dial code and plus sign prefix', function () {
+    angular.element(element).val('+12103128425').trigger('input');
+    $scope.$digest();
+    expect($scope.model.tel).toEqual('12103128425');
+  });
+
   it('should not set the model value when invalid', function () {
     angular.element(element).val('07400 123456').trigger('input');
     $scope.$digest();
@@ -80,6 +86,19 @@ describe('ng-intl-tel-input', function () {
 
   it('should set the country when model value is present', inject(function ($compile) {
     $scope.model.tel = '447400123456';
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    element = doc.find('input').eq(0);
+    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
+  }));
+
+  it('should set the country when model value is present with plus sign prefix', inject(function ($compile) {
+    $scope.model.tel = '+447400123456';
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input />' +
