@@ -18,7 +18,7 @@ angular.module('ngIntlTelInput')
           ngIntlTelInput.init(elm);
           // Validation.
           ctrl.$validators.ngIntlTelInput = function (value) {
-            // if phone number is deleted / empty do not run phone number validation 
+            // if phone number is deleted / empty do not run phone number validation
             if (value || elm[0].value.length > 1) {
                 return elm.intlTelInput("isValidNumber");
             } else {
@@ -32,7 +32,9 @@ angular.module('ngIntlTelInput')
           // Set input value to model value and trigger evaluation.
           ctrl.$formatters.push(function (value) {
             if (value) {
-              value = value.charAt(0) === '+' || '+' + value;
+              if(value.charAt(0) !== '+') {
+                value = '+' + value;
+              }
               elm.intlTelInput('setNumber', value);
             }
             return value;

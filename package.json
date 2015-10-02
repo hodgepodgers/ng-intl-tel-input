@@ -54,7 +54,7 @@
     "mocha": "^2.2.5",
     "mversion": "^1.10.0",
     "phantomjs": "^1.9.17",
-    "protractor": "^2.1.0",
+    "protractor": "~2.4.0",
     "sinon": "^1.15.4",
     "uglify": "^0.1.5"
   }
