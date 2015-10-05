@@ -40,6 +40,13 @@ describe('ng-intl-tel-input', function () {
     expect(form.tel.$valid).toBe(false);
   });
 
+  it('should set the field as invalid with input longer than > 0', function () {
+    angular.element(element).val('1').trigger('input');
+    $scope.$digest();
+    expect(form.tel.$error.ngIntlTelInput).toBeDefined();
+    expect(form.tel.$valid).toBe(false);
+  });
+
   it('should set the field as valid with good input', function () {
     angular.element(element).val('2103128425').trigger('input');
     $scope.$digest();
