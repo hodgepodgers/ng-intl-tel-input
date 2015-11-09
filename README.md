@@ -75,3 +75,11 @@ This attribute allows run-time setting of the default country.
 ```html
 <input type="text" ng-model="model.tel" ng-intl-tel-input data-default-country="gb">
 ```
+
+#### data-default-number-type attribute
+
+This attribute allows run-time setting of the default number type (MOBILE/FIXED_LINE).
+
+```html
+<input type="text" ng-model="model.tel" ng-intl-tel-input data-default-number-type="MOBILE">
+```
