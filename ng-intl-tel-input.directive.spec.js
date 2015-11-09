@@ -116,16 +116,4 @@ describe('ng-intl-tel-input', function () {
     element = doc.find('input').eq(0);
     expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
   }));
-
-  it('should set the default number type', inject(function ($compile) {
-    doc = angular.element(
-      '<form name="form">' +
-      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-default-number-type="MOBILE" />' +
-      '</form>'
-    );
-    $compile(doc)($scope);
-    $scope.$digest();
-    element = doc.find('input').eq(0);
-    expect(element.intlTelInput('getNumberType').iso2).toEqual('MOBILE');
-  }));
 });
