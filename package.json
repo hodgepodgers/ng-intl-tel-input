@@ -7,7 +7,7 @@
     "test": "npm run jshint && npm run karma",
     "build": "npm run concat && npm run uglify",
     "start": "nohup http-server",
-    "jshint": "jshint *.js",
+    "jshint": "jshint .",
     "karma": "karma start karma.conf.js",
     "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,provider,directive}.js -o dist/ng-intl-tel-input.js",
     "uglify": "uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
