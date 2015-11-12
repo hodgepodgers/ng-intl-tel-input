@@ -6,14 +6,14 @@
   "scripts": {
     "test": "npm run jshint && npm run karma",
     "build": "npm run concat && npm run uglify",
-    "start": "nohup ./node_modules/http-server/bin/http-server",
-    "jshint": "./node_modules/jshint/bin/jshint *.js",
-    "karma": "./node_modules/karma/bin/karma start karma.conf.js",
+    "start": "nohup http-server",
+    "jshint": "jshint *.js",
+    "karma": "karma start karma.conf.js",
     "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,provider,directive}.js -o dist/ng-intl-tel-input.js",
-    "uglify": "./node_modules/uglify/bin/uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
-    "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update",
-    "protractor": "./node_modules/protractor/bin/protractor protractor.conf.js",
-    "mversion": "./node_modules/mversion/bin/version "
+    "uglify": "uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
+    "webdriver-update": "webdriver-manager update",
+    "protractor": "protractor protractor.conf.js",
+    "mversion": "mversion "
   },
   "repository": {
     "type": "git",
