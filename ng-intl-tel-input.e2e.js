@@ -14,6 +14,11 @@ var page = Object.create({}, {
     set: function (number) {
       this.phoneDefaultCountry.sendKeys(number);
     }
+  },
+  phoneDefaultNumberType: {
+    get: function () {
+      return $('#tel-dnt-f');
+    }
   }
 });
 
@@ -26,6 +31,10 @@ describe('ng-intl-tel-input directive', function () {
   it('should set default country to data-default-country', function () {
     page.phoneDefaultCountry = '07400123456';
     expect(page.phoneDefaultCountry.getAttribute('value')).to.eventually.equal('07400 123456');
+  });
+
+  it('should set default number type to data-default-number-type', function () {
+    expect(page.phoneDefaultNumberType.getAttribute('placeholder')).to.eventually.equal('050-123-4567');
   });
 });
 
