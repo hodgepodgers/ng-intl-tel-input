@@ -34,7 +34,7 @@ describe('ng-intl-tel-input directive', function () {
   });
 
   it('should set default number type to data-default-number-type', function () {
-    expect(page.phoneDefaultNumberType.getAttribute('placeholder')).to.eventually.equal('050-123-4567');
+    expect(page.phoneDefaultNumberType.getAttribute('placeholder')).to.eventually.equal('02-123-4567');
   });
 });
 
