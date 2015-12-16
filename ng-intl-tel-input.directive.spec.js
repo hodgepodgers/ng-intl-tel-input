@@ -116,4 +116,15 @@ describe('ng-intl-tel-input', function () {
     element = doc.find('input').eq(0);
     expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
   }));
+
+  it('should apply the intl-tel-input jquery plugin to input fields without a type declaration', inject(function ($compile) {
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" name="tel" ng-intl-tel-input />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    expect(doc.find('.intl-tel-input').length).toEqual(1);
+  }));
 });
