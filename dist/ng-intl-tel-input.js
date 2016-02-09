@@ -32,8 +32,8 @@ angular.module('ngIntlTelInput')
         require: 'ngModel',
         link: function (scope, elm, attr, ctrl) {
           // Warning for bad directive usage.
-          if ((!!attr.type && attr.type !== 'text') || elm[0].tagName !== 'INPUT') {
-            $log.warn('ng-intl-tel-input can only be applied to a *text* input');
+          if ((!!attr.type && (attr.type !== 'text' && attr.type !== 'tel')) || elm[0].tagName !== 'INPUT') {
+            $log.warn('ng-intl-tel-input can only be applied to a *text* or *tel* input');
             return;
           }
           // Override default country.
