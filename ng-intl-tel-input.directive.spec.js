@@ -18,14 +18,28 @@ describe('ng-intl-tel-input', function () {
   }));
 
 
-  it('should apply the intl-tel-input jquery plugin', function () {
+  it('should apply the intl-tel-input jquery plugin to text fields', function () {
     expect(doc.find('.intl-tel-input').length).toEqual(1);
   });
 
-  it('should only apply the intl-tel-input jquery plugin to text fields', inject(function ($compile, $rootScope) {
+  it('should apply the intl-tel-input jquery plugin to tel fields', inject(function ($compile, $rootScope) {
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="tel" name="tel" ng-intl-tel-input />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    expect(doc.find('.intl-tel-input').length).toEqual(1);
+  }));
+
+  it('should apply the intl-tel-input jquery plugin to text and tel fields', inject(function ($compile, $rootScope) {
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" type="password" name="tel" ng-intl-tel-input />' +
+      '<input ng-model="model.tel" type="email" name="tel" ng-intl-tel-input />' +
+      '<input ng-model="model.tel" type="number" name="tel" ng-intl-tel-input />' +
+      '<input ng-model="model.tel" type="date" name="tel" ng-intl-tel-input />' +
       '</form>'
     );
     $compile(doc)($scope);

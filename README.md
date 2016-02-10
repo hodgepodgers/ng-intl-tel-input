@@ -65,7 +65,7 @@ This attribute applies _intl-tel-input_ to a **text** field.
 
 **Note**
 
-* `type` is set to *text*
+* `type` is set to *text* or *tel*
 * `ng-model` is specified (required)
 
 #### data-default-country attribute
