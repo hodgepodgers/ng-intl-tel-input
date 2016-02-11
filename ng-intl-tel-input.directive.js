@@ -14,6 +14,10 @@ angular.module('ngIntlTelInput')
           if (attr.defaultCountry) {
             ngIntlTelInput.set({defaultCountry: attr.defaultCountry});
           }
+          // Override default number type.
+          if (attr.defaultNumberType) {
+            ngIntlTelInput.set({numberType: attr.defaultNumberType});
+          }
           // Initialize.
           ngIntlTelInput.init(elm);
           // Validation.
