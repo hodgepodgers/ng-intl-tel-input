@@ -2,7 +2,7 @@
   "name": "ng-intl-tel-input",
   "version": "1.4.0",
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
-  "main": "ng-intl-tel-input.directive.js",
+  "main": "dist/ng-intl-tel-input.js",
   "scripts": {
     "test": "npm run jshint && npm run karma",
     "build": "npm run concat && npm run uglify",
