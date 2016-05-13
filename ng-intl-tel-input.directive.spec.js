@@ -78,13 +78,13 @@ describe('ng-intl-tel-input', function () {
   it('should set the model value to the full phone number with dial code', function () {
     angular.element(element).val('2103128425').trigger('input');
     $scope.$digest();
-    expect($scope.model.tel).toEqual('12103128425');
+    expect($scope.model.tel).toEqual('+12103128425');
   });
 
   it('should set the model value to the full phone number with dial code and plus sign prefix', function () {
     angular.element(element).val('+12103128425').trigger('input');
     $scope.$digest();
-    expect($scope.model.tel).toEqual('12103128425');
+    expect($scope.model.tel).toEqual('+12103128425');
   });
 
   it('should not set the model value when invalid', function () {
