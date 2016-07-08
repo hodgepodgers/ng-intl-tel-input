@@ -23,7 +23,7 @@ module.exports = function (config) {
       'bower_components/angularjs/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/intl-tel-input/build/js/intlTelInput.js',
-      'bower_components/intl-tel-input/lib/libphonenumber/build/utils.js',
+      'bower_components/intl-tel-input/build/js/utils.js',
       'ng-intl-tel-input.module.js',
       'ng-intl-tel-input.provider.js',
       'ng-intl-tel-input.directive.js',

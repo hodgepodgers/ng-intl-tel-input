@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ng-intel-tel-input example page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css">
   <style>
     /*
@@ -44,7 +44,7 @@
           <input type="text" class="form-control" id="tel" name="tel" ng-model="tel" ng-intl-tel-input>
           <span class="help-block" ng-show="form.tel.$pristine && form.tel.$untouched">Please type a telephone number</span>
           <span class="help-block" ng-show="form.tel.$invalid && form.tel.$touched">Invalid :(</span>
-          <span class="help-block" ng-show="form.tel.$valid">Valid :)</span>
+          <span class="help-block" ng-show="form.tel.$valid && form.tel.$touched">Valid :)</span>
         </div>
       </form>
     </div>
@@ -56,10 +56,10 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h2>Setting default country with <code>data-default-country</code></h2>
+      <h2>Setting default country with <code>data-initial-country</code></h2>
 
       <div class="well">
-        <code>&lt;input type=&quot;text&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input data-default-country=&quot;gb&quot;&gt;</code>
+        <code>&lt;input type=&quot;text&quot; name=&quot;tel&quot; ng-model=&quot;tel&quot; ng-intl-tel-input data-initial-country=&quot;gb&quot;&gt;</code>
       </div>
     </div>
   </div>
@@ -69,10 +69,10 @@
       <form name="form2">
         <div class="form-group" ng-class="{'has-error': form2.tel.$invalid && form2.tel.$touched, 'has-success': form2.tel.$valid}">
           <label for="tel">Telephone number</label>
-          <input type="text" class="form-control" id="tel-dc" name="tel" ng-model="tel2" ng-intl-tel-input data-default-country='gb'>
+          <input type="text" class="form-control" id="tel-dc" name="tel" ng-model="tel2" ng-intl-tel-input data-initial-country='gb'>
           <span class="help-block" ng-show="form2.tel.$pristine && form2.tel.$untouched">Please type a telephone number</span>
           <span class="help-block" ng-show="form2.tel.$invalid && form2.tel.$touched">Invalid :(</span>
-          <span class="help-block" ng-show="form2.tel.$valid">Valid :)</span>
+          <span class="help-block" ng-show="form2.tel.$valid && form2.tel.$touched">Valid :)</span>
         </div>
       </form>
     </div>
@@ -87,14 +87,16 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angularjs/angular.js"></script>
 <script src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
-<script src="bower_components/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
+<script src="bower_components/intl-tel-input/build/js/utils.js"></script>
 <script src="ng-intl-tel-input.module.js"></script>
 <script src="ng-intl-tel-input.provider.js"></script>
 <script src="ng-intl-tel-input.directive.js"></script>
 <script>
   var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput'])
       .config(function (ngIntlTelInputProvider) {
-        ngIntlTelInputProvider.set({defaultCountry: 'us'});
+        ngIntlTelInputProvider.set({
+          initialCountry: 'us'
+        });
       });
 </script>
 

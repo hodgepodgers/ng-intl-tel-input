@@ -24,14 +24,14 @@ describe('ngIntlTelInput Provider', function () {
       stub.restore();
     });
 
-    it('should set default country', function () {
-      provider.set({'defaultCountry': 'af'});
+    it('should set initial country', function () {
+      provider.set({'initialCountry': 'af'});
       $injector.invoke(provider.$get).init(element);
       expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
     });
 
     it('should set multiple properties', function () {
-      var script = {'defaultCountry': 'us', 'utilsScript': 'lol'};
+      var script = {'initialCountry': 'us', 'utilsScript': 'lol'};
       provider.set(script);
       var stub = sinon.stub(element, 'intlTelInput');
       $injector.invoke(provider.$get).init(element);
@@ -49,13 +49,13 @@ describe('ngIntlTelInput Provider', function () {
       element = angular.element(
         '<form name="form">' +
         '<label for="tel">Telephone</label>' +
-        '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-default-country="af"/>' +
+        '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-initial-country="af"/>' +
         '</form>'
       );
     }));
 
     it('should override the default country', inject(function ($compile, $rootScope) {
-      provider.set({'defaultCountry': 'gb'});
+      provider.set({'initialCountry': 'gb'});
       var input = element.find('input');
       $compile(element)($rootScope);
       $rootScope.$digest();
