@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-controller="ngIntlTelInputAppController">
 
   <div class="page-header">
     <h1>ng-intel-tel-input examples</h1>
@@ -69,7 +69,7 @@
       <form name="form2">
         <div class="form-group" ng-class="{'has-error': form2.tel.$invalid && form2.tel.$touched, 'has-success': form2.tel.$valid}">
           <label for="tel">Telephone number</label>
-          <input type="text" class="form-control" id="tel-dc" name="tel" ng-model="tel2" ng-intl-tel-input data-initial-country='gb'>
+          <input type="text" class="form-control" id="tel-dc" name="tel" ng-model="tel2" ng-intl-tel-input data-initial-country="gb" data-selected-country="selected.country">
           <span class="help-block" ng-show="form2.tel.$pristine && form2.tel.$untouched">Please type a telephone number</span>
           <span class="help-block" ng-show="form2.tel.$invalid && form2.tel.$touched">Invalid :(</span>
           <span class="help-block" ng-show="form2.tel.$valid && form2.tel.$touched">Valid :)</span>
@@ -79,6 +79,7 @@
     <div class="col-md-6">
       <p><strong>Model value</strong></p>
       <blockquote>{{tel2}}<span ng-if="!tel2">N/A</span></blockquote>
+      <blockquote id="selectedCountry">{{selected.country}}</blockquote>
     </div>
   </div>
 
@@ -86,18 +87,25 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angularjs/angular.js"></script>
-<script src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
 <script src="bower_components/intl-tel-input/build/js/utils.js"></script>
+<script src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
 <script src="ng-intl-tel-input.module.js"></script>
 <script src="ng-intl-tel-input.provider.js"></script>
 <script src="ng-intl-tel-input.directive.js"></script>
 <script>
+
   var ngIntlTelInputApp = angular.module('ngIntlTelInputApp', ['ngIntlTelInput'])
       .config(function (ngIntlTelInputProvider) {
         ngIntlTelInputProvider.set({
-          initialCountry: 'us'
+          initialCountry: 'us',
+          utilsScript: 'bower_components/intl-tel-input/build/js/utils.js'
         });
       });
+
+  angular.module('ngIntlTelInputApp', ['ngIntlTelInput']).controller('ngIntlTelInputAppController', function($scope) {
+    $scope.selected = {country: ''};
+  });
+
 </script>
 
 </body>

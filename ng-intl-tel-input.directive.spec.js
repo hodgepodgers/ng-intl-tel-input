@@ -141,4 +141,16 @@ describe('ng-intl-tel-input', function () {
     $scope.$digest();
     expect(doc.find('.intl-tel-input').length).toEqual(1);
   }));
+
+  it('should set the selected country data when data-selected-country attribute is present', inject(function ($compile) {
+    $scope.model.selectedCountry = null;
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-selected-country="model.selectedCountry" />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    expect($scope.model.selectedCountry.iso2).toEqual('us');
+  }));
 });
