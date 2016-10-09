@@ -93,10 +93,10 @@ describe('ng-intl-tel-input', function () {
     expect($scope.model.tel).toBeUndefined();
   });
 
-  it('should set the default country', inject(function ($compile) {
+  it('should set the initial country', inject(function ($compile) {
     doc = angular.element(
       '<form name="form">' +
-      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-default-country="af" />' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-initial-country="af" />' +
       '</form>'
     );
     $compile(doc)($scope);
