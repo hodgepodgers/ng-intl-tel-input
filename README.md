@@ -26,6 +26,10 @@ http://hodgepodgers.github.io/ng-intl-tel-input/
 
 ### Installation
 
+**With NPM**
+
+`npm install ng-intl-tel-input --save`
+
 **With Bower**
 
 `bower install ng-intl-tel-input --save`
