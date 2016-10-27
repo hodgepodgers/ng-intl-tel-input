@@ -49,7 +49,7 @@ Configure defaults
 ```javascript
 angular.module('myApp')
   .config(function (ngIntlTelInputProvider) {
-    ngIntlTelInputProvider.set({defaultCountry: 'us'});
+    ngIntlTelInputProvider.set({initialCountry: 'us'});
   });
 ```
 
@@ -73,5 +73,5 @@ This attribute applies _intl-tel-input_ to a **text** field.
 This attribute allows run-time setting of the default country.
 
 ```html
-<input type="text" ng-model="model.tel" ng-intl-tel-input data-default-country="gb">
+<input type="text" ng-model="model.tel" ng-intl-tel-input data-initial-country="gb">
 ```
