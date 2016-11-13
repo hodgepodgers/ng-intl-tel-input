@@ -36,6 +36,17 @@ angular.module('ngIntlTelInput')
             $log.warn('ng-intl-tel-input can only be applied to a *text* or *tel* input');
             return;
           }
+          
+          var formatEnum = {
+              E164: 0,
+              INTERNATIONAL: 1,
+              NATIONAL: 2,
+              RFC3966: 3
+          };
+          
+          // Get specified number format
+          var numberFormat = attr.telFormat ? formatEnum[attr.telFormat] : '';
+          
           // Override default country.
           if (attr.initialCountry) {
             ngIntlTelInput.set({initialCountry: attr.initialCountry});
@@ -73,7 +84,7 @@ angular.module('ngIntlTelInput')
           };
           // Set model value to valid, formatted version.
           ctrl.$parsers.push(function (value) {
-            return elm.intlTelInput('getNumber');
+            return elm.intlTelInput('getNumber', numberFormat);
           });
           // Set input value to model value and trigger evaluation.
           ctrl.$formatters.push(function (value) {
