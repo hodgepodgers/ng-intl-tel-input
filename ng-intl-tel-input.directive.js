@@ -10,6 +10,17 @@ angular.module('ngIntlTelInput')
             $log.warn('ng-intl-tel-input can only be applied to a *text* or *tel* input');
             return;
           }
+          
+          var formatEnum = {
+              E164: 0,
+              INTERNATIONAL: 1,
+              NATIONAL: 2,
+              RFC3966: 3
+          };
+          
+          // Get specified number format
+          var numberFormat = attr.telFormat ? formatEnum[attr.telFormat] : '';
+          
           // Override default country.
           if (attr.initialCountry) {
             ngIntlTelInput.set({initialCountry: attr.initialCountry});
