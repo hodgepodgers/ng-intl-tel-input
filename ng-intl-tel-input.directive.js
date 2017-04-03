@@ -31,11 +31,18 @@ angular.module('ngIntlTelInput')
             angular.element($window).off('countrychange', handleCountryChange);
           }
           // Selected Country Data.
-          if (attr.selectedCountry) {
-            setSelectedCountryData(attr.selectedCountry);
-            angular.element($window).on('countrychange', handleCountryChange);
-            scope.$on('$destroy', cleanUp);
-          }
+          angular.element($window).on('countrychange', function () {
+            if(attr.selectedCountry) {
+              setSelectedCountryData(attr.selectedCountry);
+            }
+
+            if (!ctrl.$viewValue || ctrl.$viewValue === elm.val()) {
+              return;
+            }
+
+            ctrl.$setViewValue(elm.val());
+          });
+          scope.$on('$destroy', cleanUp);
           // Validation.
           ctrl.$validators.ngIntlTelInput = function (value) {
             // if phone number is deleted / empty do not run phone number validation
