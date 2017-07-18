@@ -5,7 +5,6 @@ angular.module('ngIntlTelInput')
         restrict: 'A',
         require: 'ngModel',
         link: function (scope, elm, attr, ctrl) {
-          // fix issue #98, always track 'countrychange' event, but only update country model if necessary
           var countryTracked = false;
 
           // Warning for bad directive usage.
@@ -28,27 +27,24 @@ angular.module('ngIntlTelInput')
 
           // Handle Country Changes.
           function handleCountryChange() {
-            // fix issue #98: only update country model if necessary (if attr is supplied)
+            // update country model if attr is supplied
             if (countryTracked) {
               setSelectedCountryData(attr.selectedCountry);
             }
-            // fix issue #98: always trigger 'change' to notify angular model controller
             elm.trigger('change');
           }
 
           // Country Change cleanup.
           function cleanUp() {
-            elm.off('countrychange', handleCountryChange); // use 'elm' instead of '$window', there more than one
+            elm.off('countrychange', handleCountryChange);
           }
 
           // Selected Country Data.
           if (attr.selectedCountry) {
-            // fix issue #98: country model update is enabled
             countryTracked = true;
             setSelectedCountryData(attr.selectedCountry);
           }
-          // fix issue #98: always track 'countrychange' event
-          elm.on('countrychange', handleCountryChange); // use 'elm' instead of '$window', there more than one
+          elm.on('countrychange', handleCountryChange);
           scope.$on('$destroy', cleanUp);
 
           // Validation.
