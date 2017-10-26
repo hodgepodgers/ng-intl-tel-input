@@ -79,3 +79,12 @@ This attribute allows run-time setting of the default country.
 ```html
 <input type="text" ng-model="model.tel" ng-intl-tel-input data-initial-country="gb">
 ```
+
+#### data-ignore-validation attribute
+
+This attribute allows to bypass default phone number format validation.
+
+```html
+<input type="text" ng-model="model.tel" ng-intl-tel-input data-ignore-validation="true">
+```
+
