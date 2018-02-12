@@ -6,7 +6,7 @@ node_js:
   - "5"
   - "6"
 addons:
-  - "firefox": "47.0"
+  - "firefox": "47.0.1"
 install:
   - "npm install"
   - "./node_modules/bower/bin/bower install"
