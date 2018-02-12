@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "6"
 addons:
-  - "firefox": "47.0.1"
+  - "chrome": "stable"
 install:
   - "npm install"
 before_script:
