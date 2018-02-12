@@ -1,19 +1,18 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "0.12"
-  - "4"
-  - "5"
   - "6"
 addons:
-  - "firefox": "36.0.4"
+  - "chrome": "stable"
 install:
   - "npm install"
-  - "./node_modules/bower/bin/bower install"
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+  - "sleep 3"
   - "npm run start &"
+  - "sleep 3"
+  - "google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
+
 script:
   - "npm run jshint"
   - "npm run karma"
