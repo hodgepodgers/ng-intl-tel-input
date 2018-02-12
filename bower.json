@@ -26,10 +26,10 @@
     "tests"
   ],
   "dependencies": {
-    "intl-tel-input": "~9.0.0"
+    "intl-tel-input": "~12.1.6"
   },
   "devDependencies": {
-    "angularjs": "^1.5.0",
-    "angular-mocks": "^1.5.0"
+    "angularjs": "^1.6.7",
+    "angular-mocks": "^1.6.7"
   }
 }

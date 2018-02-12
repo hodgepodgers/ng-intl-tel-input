@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ng-intel-tel-input example page</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css">
+  <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.css">
   <style>
     /*
      * @see https://github.com/Bluefieldscom/intl-tel-input#troubleshooting
@@ -85,10 +85,10 @@
 
 </div>
 
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angularjs/angular.js"></script>
-<script src="bower_components/intl-tel-input/build/js/utils.js"></script>
-<script src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/intl-tel-input/build/js/utils.js"></script>
+<script src="node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
 <script src="ng-intl-tel-input.module.js"></script>
 <script src="ng-intl-tel-input.provider.js"></script>
 <script src="ng-intl-tel-input.directive.js"></script>
@@ -98,7 +98,7 @@
       .config(function (ngIntlTelInputProvider) {
         ngIntlTelInputProvider.set({
           initialCountry: 'us',
-          utilsScript: 'bower_components/intl-tel-input/build/js/utils.js'
+          utilsScript: 'node_modules/intl-tel-input/build/js/utils.js'
         });
       });
 

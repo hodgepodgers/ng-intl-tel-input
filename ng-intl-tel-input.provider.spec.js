@@ -15,7 +15,7 @@ describe('ngIntlTelInput Provider', function () {
       );
     }));
 
-    it('should allow the passsing of utils file', function () {
+    it('should allow the passing of utils file', function () {
       var script = {'utilsScript': '/path/to/utils'};
       provider.set(script);
       var stub = sinon.stub(element, 'intlTelInput');
