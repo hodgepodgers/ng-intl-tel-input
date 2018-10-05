@@ -47,7 +47,6 @@
     "concat-cli": "^4.0.0",
     "http-server": "^0.10.0",
     "jasmine-core": "^2.3.4",
-    "jquery": "^3.2.1",
     "jshint": "^2.9.5",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",

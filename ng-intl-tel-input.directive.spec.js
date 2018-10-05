@@ -14,15 +14,15 @@ describe('ng-intl-tel-input', function () {
     $compile(doc)($scope);
     $scope.$digest();
     form = $scope.form;
-    element = doc.find('input').eq(0);
+    element = (doc.find('input').eq(0))[0];
   }));
 
 
-  it('should apply the intl-tel-input jquery plugin to text fields', function () {
-    expect(doc.find('.intl-tel-input').length).toEqual(1);
+  it('should apply the intl-tel-input to text fields', function () {
+    expect(doc[0].querySelector('.intl-tel-input')).not.toBeNull();
   });
 
-  it('should apply the intl-tel-input jquery plugin to tel fields', inject(function ($compile, $rootScope) {
+  it('should apply the intl-tel-input to tel fields', inject(function ($compile, $rootScope) {
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" type="tel" name="tel" ng-intl-tel-input />' +
@@ -30,10 +30,10 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    expect(doc.find('.intl-tel-input').length).toEqual(1);
+    expect(doc[0].querySelector('.intl-tel-input')).not.toBeNull();
   }));
 
-  it('should apply the intl-tel-input jquery plugin to text and tel fields', inject(function ($compile, $rootScope) {
+  it('should apply the intl-tel-input to text and tel fields', inject(function ($compile, $rootScope) {
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" type="password" name="tel" ng-intl-tel-input />' +
@@ -44,51 +44,58 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    expect(doc.find('.intl-tel-input').length).toEqual(0);
+    expect(doc[0].querySelector('.intl-tel-input')).toBeNull();
   }));
 
   it('should set the field as invalid with bad input', function () {
-    angular.element(element).val('07400 123456').trigger('input');
+    element.value = '07400 123456';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeDefined();
     expect(form.tel.$valid).toBe(false);
   });
 
   it('should set the field as invalid with input longer than > 0', function () {
-    angular.element(element).val('1').trigger('input');
+    element.value = '1';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeDefined();
     expect(form.tel.$valid).toBe(false);
   });
 
   it('should set the field as valid with good input', function () {
-    angular.element(element).val('2103128425').trigger('input');
+    element.value = '2103128425';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeUndefined();
     expect(form.tel.$valid).toBe(true);
   });
 
   it('should set the field as valid with empty input', function () {
-    angular.element(element).val('').trigger('input');
+    element.value = '';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect(form.tel.$error.ngIntlTelInput).toBeUndefined();
     expect(form.tel.$valid).toBe(true);
   });
 
   it('should set the model value to the full phone number with dial code', function () {
-    angular.element(element).val('2103128425').trigger('input');
+    element.value = '2103128425';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect($scope.model.tel).toEqual('+12103128425');
   });
 
   it('should set the model value to the full phone number with dial code and plus sign prefix', function () {
-    angular.element(element).val('+12103128425').trigger('input');
+    element.value = '+12103128425';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect($scope.model.tel).toEqual('+12103128425');
   });
 
   it('should not set the model value when invalid', function () {
-    angular.element(element).val('07400 123456').trigger('input');
+    element.value = '07400 123456';
+    element.dispatchEvent(new Event('input'));
     $scope.$digest();
     expect($scope.model.tel).toBeUndefined();
   });
@@ -134,7 +141,7 @@ describe('ng-intl-tel-input', function () {
     expect(iti.getSelectedCountryData().iso2).toEqual('gb');
   }));
 
-  it('should apply the intl-tel-input jquery plugin to input fields without a type declaration', inject(function ($compile) {
+  it('should apply the intl-tel-input to input fields without a type declaration', inject(function ($compile) {
     doc = angular.element(
       '<form name="form">' +
       '<input ng-model="model.tel" name="tel" ng-intl-tel-input />' +
@@ -142,7 +149,7 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    expect(doc.find('.intl-tel-input').length).toEqual(1);
+    expect(doc[0].querySelector('.intl-tel-input')).not.toBeNull();
   }));
 
   it('should set the selected country data when data-selected-country attribute is present', inject(function ($compile) {
