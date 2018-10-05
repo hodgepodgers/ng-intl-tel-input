@@ -101,8 +101,9 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    element = doc.find('input').eq(0);
-    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
+
+    var iti = findLastCreatedItiInstance();
+    expect(iti.getSelectedCountryData().iso2).toEqual('af');
   }));
 
   it('should set the country when model value is present', inject(function ($compile) {
@@ -114,8 +115,9 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    element = doc.find('input').eq(0);
-    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
+
+    var iti = findLastCreatedItiInstance();
+    expect(iti.getSelectedCountryData().iso2).toEqual('gb');
   }));
 
   it('should set the country when model value is present with plus sign prefix', inject(function ($compile) {
@@ -127,8 +129,9 @@ describe('ng-intl-tel-input', function () {
     );
     $compile(doc)($scope);
     $scope.$digest();
-    element = doc.find('input').eq(0);
-    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('gb');
+
+    var iti = findLastCreatedItiInstance();
+    expect(iti.getSelectedCountryData().iso2).toEqual('gb');
   }));
 
   it('should apply the intl-tel-input jquery plugin to input fields without a type declaration', inject(function ($compile) {

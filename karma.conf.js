@@ -28,6 +28,7 @@ module.exports = function (config) {
       'ng-intl-tel-input.provider.js',
       'ng-intl-tel-input.directive.js',
       'node_modules/phantomjs-polyfills/polyfills/function-bind-polyfill.js',
+      'test-helpers.js',
       '*.spec.js'
     ]
 
