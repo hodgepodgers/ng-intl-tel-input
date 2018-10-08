@@ -11,7 +11,7 @@
     "karma": "karma start karma.conf.js",
     "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,provider,directive}.js -o dist/ng-intl-tel-input.js",
     "uglify": "uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
-    "webdriver-update": "webdriver-manager update",
+    "webdriver-update": "webdriver-manager update --versions.gecko=v0.19.1",
     "protractor": "protractor protractor.conf.js",
     "mversion": "mversion "
   },

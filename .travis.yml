@@ -6,7 +6,7 @@ node_js:
   - "9"
   - "10"
 addons:
-  - "firefox": latest
+  - "firefox": latest-esr
 install:
   - "npm install"
   - "./node_modules/bower/bin/bower install"
