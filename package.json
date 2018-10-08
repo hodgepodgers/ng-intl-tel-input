@@ -57,7 +57,7 @@
     "mversion": "^1.10.0",
     "phantomjs": "^1.9.17",
     "phantomjs-polyfills": "^1.0.1",
-    "protractor": "~2.4.0",
+    "protractor": "^5.4.1",
     "sinon": "^4.1.3",
     "uglify": "^0.1.5"
   },

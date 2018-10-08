@@ -79,3 +79,19 @@ This attribute allows run-time setting of the default country.
 ```html
 <input type="text" ng-model="model.tel" ng-intl-tel-input data-initial-country="gb">
 ```
+
+## Running tests
+
+Be sure to install the right node version. You can use [nvm](https://github.com/creationix/nvm):
+
+    nvm i
+
+Run Unit tests (jasmine):
+
+    npm run test
+
+Run End-to-end tests (protractor):
+
+    npm run webdriver-update
+    npm run start &
+    npm run protractor

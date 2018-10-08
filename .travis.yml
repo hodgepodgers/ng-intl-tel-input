@@ -1,18 +1,17 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "0.12"
-  - "4"
-  - "5"
   - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
 addons:
-  - "firefox": "36.0.4"
+  - "firefox": latest
 install:
   - "npm install"
   - "./node_modules/bower/bin/bower install"
 before_script:
   - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
   - "npm run start &"
 script:
   - "npm run jshint"
