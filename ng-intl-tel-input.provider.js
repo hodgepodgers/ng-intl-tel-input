@@ -18,7 +18,7 @@ angular.module('ngIntlTelInput')
             if (!window.intlTelInputUtils) {
               $log.warn('intlTelInputUtils is not defined. Formatting and validation will not work.');
             }
-            elm.intlTelInput(props);
+            return window.intlTelInput(elm[0], props);
           }
         },
       });

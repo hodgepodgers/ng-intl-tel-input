@@ -2,7 +2,7 @@ var path = require('path');
 
 exports.config = {
   rootElement: 'html',
-  seleniumServerJar: __dirname + '/node_modules/protractor/selenium/selenium-server-standalone-2.47.1.jar',
+  seleniumServerJar: __dirname + '/node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-3.14.0.jar',
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
@@ -18,7 +18,10 @@ exports.config = {
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    browserName: 'firefox'
+    browserName: 'firefox',
+    'moz:firefoxOptions': {
+      'args': ['-headless']
+    }
   },
 
   allScriptsTimeout: (1000 * 60 * 4),
