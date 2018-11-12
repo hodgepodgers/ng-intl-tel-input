@@ -40,6 +40,12 @@ angular.module('ngIntlTelInput')
           if (attr.initialCountry) {
             ngIntlTelInput.set({initialCountry: attr.initialCountry});
           }
+          if (attr.preferredCountries) {
+            var value = $parse(attr.preferredCountries)(scope);
+            if (angular.isArray(value)) {
+              ngIntlTelInput.set({ preferredCountries: value });
+            }
+          }
           // Initialize.
           ngIntlTelInput.init(elm);
           // Set Selected Country Data.
