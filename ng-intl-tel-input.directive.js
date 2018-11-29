@@ -4,6 +4,9 @@ angular.module('ngIntlTelInput')
       return {
         restrict: 'A',
         require: 'ngModel',
+        scope: {
+          ignoreValidation: '=',
+        },
         link: function (scope, elm, attr, ctrl) {
           // Warning for bad directive usage.
           if ((!!attr.type && (attr.type !== 'text' && attr.type !== 'tel')) || elm[0].tagName !== 'INPUT') {
@@ -38,6 +41,9 @@ angular.module('ngIntlTelInput')
           }
           // Validation.
           ctrl.$validators.ngIntlTelInput = function (value) {
+            if (scope.ignoreValidation) {
+              return true;
+            }
             // if phone number is deleted / empty do not run phone number validation
             if (value || elm[0].value.length > 0) {
                 return elm.intlTelInput('isValidNumber');
