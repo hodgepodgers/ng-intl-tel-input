@@ -105,6 +105,31 @@ describe('ng-intl-tel-input', function () {
     expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('af');
   }));
 
+  it('should set the preferred countries', inject(function ($compile) {
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-preferred-countries="[\'ca\',\'us\']" />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    element = doc.find('input').eq(0);
+    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('ca');
+    //TODO: access dropdown in DOM and check to make sure first 2 list elements correspond with Canada and USA
+  }));
+
+  it('should set the preferred countries', inject(function ($compile) {
+    doc = angular.element(
+      '<form name="form">' +
+      '<input ng-model="model.tel" type="text" name="tel" ng-intl-tel-input data-preferred-countries="[\'us\',\'ca\']" />' +
+      '</form>'
+    );
+    $compile(doc)($scope);
+    $scope.$digest();
+    element = doc.find('input').eq(0);
+    expect(element.intlTelInput('getSelectedCountryData').iso2).toEqual('us');
+  }));
+
   it('should set the country when model value is present', inject(function ($compile) {
     $scope.model.tel = '447400123456';
     doc = angular.element(
