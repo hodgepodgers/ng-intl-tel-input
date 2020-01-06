@@ -31,6 +31,7 @@ angular.module('ngIntlTelInput')
         restrict: 'A',
         require: 'ngModel',
         link: function (scope, elm, attr, ctrl) {
+          var cleave;
           // Warning for bad directive usage.
           if ((!!attr.type && (attr.type !== 'text' && attr.type !== 'tel')) || elm[0].tagName !== 'INPUT') {
             $log.warn('ng-intl-tel-input can only be applied to a *text* or *tel* input');
@@ -42,6 +43,32 @@ angular.module('ngIntlTelInput')
           }
           // Initialize.
           ngIntlTelInput.init(elm);
+
+
+          scope.$watch(function(){
+            return elm[0].value;
+          }, function(newVal, oldVal){
+            if(!cleave && newVal){
+              const countryData = elm.intlTelInput('getSelectedCountryData');
+              cleave = new Cleave(elm[0], {
+                  phone: true,
+                  phoneRegionCode: countryData.iso2
+              });
+            }
+            if(oldVal.length>=2 && newVal.length>=2){
+              if(oldVal.substr(0, 2) != newVal.substr(0, 2)){
+                if(!ctrl.$validators.ngIntlTelInput(newVal)){
+                    ctrl.$setValidity('ngIntlTelInput', false);
+                }else{
+                    ctrl.$setValidity('ngIntlTelInput', true);
+                }
+                const countryData = elm.intlTelInput('getSelectedCountryData');
+                cleave.setPhoneRegionCode(countryData.iso2);
+                elm[0].value = "+" + countryData.dialCode;
+              }
+            }
+
+          });
           // Set Selected Country Data.
           function setSelectedCountryData(model) {
             var getter = $parse(model);
