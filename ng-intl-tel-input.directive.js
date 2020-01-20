@@ -26,7 +26,13 @@ angular.module('ngIntlTelInput')
               const countryData = elm.intlTelInput('getSelectedCountryData');
               cleave = new Cleave(elm[0], {
                   phone: true,
-                  phoneRegionCode: countryData.iso2
+                  phoneRegionCode: countryData.iso2,
+                  onValueChanged: function (e) {
+                        if(ctrl.$validators.ngIntlTelInput(e.target.value)){
+                            ctrl.$setValidity('ngIntlTelInput', true);
+                            scope.$apply();
+                        }
+                    }
               });
             }
             if(oldVal.length>=2 && newVal.length>=2){
