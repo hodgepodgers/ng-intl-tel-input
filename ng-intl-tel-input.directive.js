@@ -1,6 +1,6 @@
 angular.module('ngIntlTelInput')
-  .directive('ngIntlTelInput', ['ngIntlTelInput', '$log', '$window', '$parse',
-    function (ngIntlTelInput, $log, $window, $parse) {
+  .directive('ngIntlTelInput', ['ngIntlTelInput', '$log', '$window', '$parse', '$timeout',
+    function (ngIntlTelInput, $log, $window, $parse, $timeout) {
       return {
         restrict: 'A',
         require: 'ngModel',
@@ -30,7 +30,9 @@ angular.module('ngIntlTelInput')
                   onValueChanged: function (e) {
                         if(ctrl.$validators.ngIntlTelInput(e.target.value)){
                             ctrl.$setValidity('ngIntlTelInput', true);
-                            scope.$apply();
+                            $timeout(function(){
+                                scope.$apply();
+                            });
                         }
                     }
               });
@@ -46,6 +48,7 @@ angular.module('ngIntlTelInput')
                 cleave.setPhoneRegionCode(countryData.iso2);
                 elm[0].value = "+" + countryData.dialCode;
               }
+
             }
 
           });
