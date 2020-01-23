@@ -57,7 +57,9 @@ angular.module('ngIntlTelInput')
                         if(ctrl.$validators.ngIntlTelInput(e.target.value)){
                             ctrl.$setValidity('ngIntlTelInput', true);
                             $timeout(function(){
-                                scope.$apply();
+                                scope.$apply(function(){
+                                    ctrl.$setViewValue(e.target.value);
+                                });
                             });
                         }
                     }
