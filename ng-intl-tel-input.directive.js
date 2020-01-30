@@ -22,6 +22,10 @@ angular.module('ngIntlTelInput')
           scope.$watch(function(){
             return elm[0].value;
           }, function(newVal, oldVal){
+            if (newVal && newVal.length>5){
+              newVal = newVal.replace("+33 0", "+33");
+              elm.val(newVal);
+            }
             if(!cleave && newVal){
               const countryData = elm.intlTelInput('getSelectedCountryData');
               cleave = new Cleave(elm[0], {
