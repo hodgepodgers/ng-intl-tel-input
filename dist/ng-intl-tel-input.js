@@ -49,11 +49,28 @@ angular.module('ngIntlTelInput')
           scope.$watch(function(){
             return elm[0].value;
           }, function(newVal, oldVal){
+            if (newVal && newVal.length>5){
+              newVal = newVal.replace("+33 0", "+33");
+              elm.val(newVal);
+            }
+            if(!cleave && newVal){
+              const countryData = elm.intlTelInput('getSelectedCountryData');
+              cleave = new Cleave(elm[0], {
+                  phone: true,
+                  phoneRegionCode: countryData.iso2,
+                  onValueChanged: function (e) {
+                        if(ctrl.$validators.ngIntlTelInput(e.target.value)){
+                            ctrl.$setValidity('ngIntlTelInput', true);
+                            $timeout(function(){
+                                scope.$apply(function(){
+                                    ctrl.$setViewValue(e.target.value);
+                                });
+                            });
+                        }
+                    }
+              });
+            }
             if(oldVal.length>=2 && newVal.length>=2){
-              if (newVal && newVal.length>5){
-                newVal = newVal.replace("+33 0", "+33");
-                elm.val(newVal);
-              }
               if(oldVal.substr(0, 2) != newVal.substr(0, 2)){
                 if(!ctrl.$validators.ngIntlTelInput(newVal)){
                     ctrl.$setValidity('ngIntlTelInput', false);
@@ -61,8 +78,8 @@ angular.module('ngIntlTelInput')
                     ctrl.$setValidity('ngIntlTelInput', true);
                 }
                 const countryData = elm.intlTelInput('getSelectedCountryData');
-                const formatted_value = new AsYouType(countryData.iso2).input(newVal);
-                elm.val(formatted_value);
+                cleave.setPhoneRegionCode(countryData.iso2);
+                elm[0].value = "+" + countryData.dialCode;
               }
 
             }
@@ -97,23 +114,11 @@ angular.module('ngIntlTelInput')
                 return true;
             }
           };
-          //Set model value to valid, formatted version.
+          // Set model value to valid, formatted version.
           ctrl.$parsers.push(function (value) {
             return elm.intlTelInput('getNumber');
           });
-          ctrl.$formatters.push(function (value) {
-            const countryData = elm.intlTelInput('getSelectedCountryData');
-            return new AsYouType(countryData.iso2).input(value);
-          });
-          ctrl.$parsers.push(function (value) {
-            const countryData = elm.intlTelInput('getSelectedCountryData');
-            if (value && value.length>4 && value.substr(0, 4)=="+330")
-              value = value.replace("+330", "+33");
-            const formatted_value = new AsYouType(countryData.iso2).input(value);
-            elm.val(formatted_value);
-            return formatted_value;
-          });
-          //Set input value to model value and trigger evaluation.
+          // Set input value to model value and trigger evaluation.
           ctrl.$formatters.push(function (value) {
             if (value) {
               if(value.charAt(0) !== '+') {
