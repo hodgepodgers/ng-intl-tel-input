@@ -1,6 +1,6 @@
 {
   "name": "ng-intl-tel-input",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "AngularJS directive implementing intl-tel-input (https://github.com/Bluefieldscom/intl-tel-input)",
   "main": "dist/ng-intl-tel-input.js",
   "scripts": {
@@ -63,6 +63,6 @@
     "uglify": "^0.1.5"
   },
   "dependencies": {
-    "intl-tel-input": "~12.1.6"
+    "intl-tel-input": "17.0.13"
   }
 }
