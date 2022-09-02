@@ -63,6 +63,6 @@
     "uglify": "^0.1.5"
   },
   "dependencies": {
-    "intl-tel-input": "~12.1.6"
+    "intl-tel-input": "17.0.18"
   }
 }
